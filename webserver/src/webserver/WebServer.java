@@ -5,6 +5,16 @@ import java.io.*;
 
 public class WebServer extends Thread {
 	protected Socket clientSocket;
+	
+	private static Status status;	//Status.CLOSED initial
+	
+	public WebServer() {
+		
+	}
+	
+	public Status getStatus() {
+		return null;
+	}
 
 	public static void main(String[] args) throws IOException {
 		ServerSocket serverSocket = null;
@@ -65,5 +75,17 @@ public class WebServer extends Thread {
 			System.err.println("Problem with Communication Server");
 			System.exit(1);
 		}
+	}
+	
+	public void start() {
+		
+	}
+	
+	public void stopServer() {
+		
+	}
+	
+	public void maintenance() {
+		
 	}
 }
