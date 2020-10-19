@@ -1,5 +1,5 @@
 package persist;
 
-public class Config {
+public class Config { //works with files
 
 }

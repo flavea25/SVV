@@ -1,5 +1,5 @@
 package persist;
 
-public class Persist {
-
+public class Persist {	//manager of Config (makes checks as well)
+	
 }
