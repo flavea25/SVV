@@ -1,5 +1,7 @@
 package persist;
 
+import java.util.Map;
+
 public class Config { //works with files
 
 	//private final String DEFAULT_CONFIG_FILE = "WebServerConfig.ini"
@@ -24,11 +26,19 @@ public class Config { //works with files
 		return false;
 	}
 	
-	public String getSettings(String keyName) {
-		return "";
+	public String getSetting(String key) {
+		return null;
 	}
 	
-	public void setSettings(String keyName, String keyValue) {
+	public Map<String, String> getSettings(){
+		return null;
+	}
+	
+	public void setSetting(String key, String value) {
+		
+	}
+	
+	public void setSettings(Map<String,String> settings) {
 		
 	}
 	
