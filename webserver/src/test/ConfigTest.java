@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -13,22 +15,45 @@ import persist.Config;
 public class ConfigTest {
 
 	@Test(expected = ConfigInitException.class)
+	public void testGetSettingNotInit() {
+		Config conf = null;
+		conf.getSetting("root");
+	}
+	
+	@Test(expected = ConfigInitException.class)
 	public void testGetSettingsNotInit() {
 		Config conf = null;
-		conf.getSettings("root");
+		conf.getSettings();
+	}
+	
+	@Test(expected = ConfigInitException.class)
+	public void testSetSettingNotInit() {
+		Config conf = null;
+		conf.setSetting("root","www_root");
 	}
 	
 	@Test(expected = ConfigInitException.class)
 	public void testSetSettingsNotInit() {
 		Config conf = null;
-		conf.setSettings("root","www_root");
+		Map<String,String> settings = new HashMap<String,String>();
+		settings.put("root","www_root");
+		conf.setSettings(settings);
+	}
+	
+	@Test
+	public void testGetSetting() {
+		Config conf = new Config();
+		conf.setSetting("root", "www_root");
+		assertEquals("www_root", conf.getSetting("root"));
 	}
 	
 	@Test
 	public void testGetSettings() {
 		Config conf = new Config();
-		conf.setSettings("root", "www_root");
-		assertEquals("www_root", conf.getSettings("root"));
+		Map<String,String> settings = new HashMap<String,String>();
+		settings.put("root","www_root");
+		conf.setSettings(settings);
+		assertEquals("www_root", conf.getSettings());
 	}
 	
 	@Test
