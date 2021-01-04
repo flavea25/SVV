@@ -17,8 +17,7 @@ public class WebServerTest {
 	
 	@Test
 	public void testStatusMaintenance() throws Exception {
-		WebServer webServer = new WebServer();
-		webServer.maintenance();
+		WebServer.maintenance();
 		assertEquals(Status.MAINTENANCE, WebServer.STATUS);
 	}
 	
