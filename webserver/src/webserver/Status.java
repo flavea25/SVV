@@ -1,5 +1,5 @@
 package webserver;
 
 public enum Status {
-	RUNNING, MAINTENANCE, CLOSED
+	RUNNING, MAINTENANCE, STOPPED
 }

@@ -10,24 +10,22 @@ import webserver.WebServer;
 public class WebServerTest {
 
 	@Test
-	public void testStatusStart() {
-		WebServer webServer = new WebServer();
-		webServer.start();
-		assertEquals(Status.RUNNING, webServer.getStatus());
+	public void testStatusStart() throws Exception {
+		WebServer.start();
+		assertEquals(Status.RUNNING, WebServer.STATUS);
 	}
 	
 	@Test
-	public void testStatusMaintenance() {
+	public void testStatusMaintenance() throws Exception {
 		WebServer webServer = new WebServer();
 		webServer.maintenance();
-		assertEquals(Status.MAINTENANCE, webServer.getStatus());
+		assertEquals(Status.MAINTENANCE, WebServer.STATUS);
 	}
 	
 	@Test
 	public void testStatusStop() {
-		WebServer webServer = new WebServer();
-		webServer.stopServer();
-		assertEquals(Status.CLOSED, webServer.getStatus());
+		WebServer.stopServer();
+		assertEquals(Status.STOPPED, WebServer.STATUS);
 	}
 
 }
