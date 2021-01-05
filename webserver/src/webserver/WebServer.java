@@ -17,7 +17,7 @@ public class WebServer {
 
 	public static void main(String[] args) throws Exception {
 		//uncomment and change the following lines, if necessary
-		//initialize.setDefaultPath(...); //or just modify the static variable DEFAULT_PATH in class Config
+		//initialize.setPath(...); 
 		//initialize.setPortNumber(...); //default is 10008
 		
 		//uncomment the line below to test the stopServer() method
@@ -80,7 +80,11 @@ public class WebServer {
 		configuration.setPortNumber(port);
 	}
 	
+	public static String getPath() {
+		return configuration.getPath();
+	}
+	
 	public static void setPath(String path) throws InvalidPathException {
-		configuration.setDefaultPath(path);
+		configuration.setPath(path);
 	}
 }

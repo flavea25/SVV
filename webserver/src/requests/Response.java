@@ -10,7 +10,6 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-import webserver.Config;
 import webserver.Status;
 import webserver.WebServer;
 
@@ -29,14 +28,14 @@ public class Response {
                 try {
                 	if(WebServer.STATUS.equals(Status.RUNNING)) {
                 		if(request.getRequestPath().equals("/")) {
-                    		file = new File(Config.DEFAULT_PATH + INDEX_FILE); 
+                    		file = new File(WebServer.getPath() + INDEX_FILE); 
                     	}
                     	else {
-                    		file = new File(Config.DEFAULT_PATH + modifyPath(request.getRequestPath())); 
+                    		file = new File(WebServer.getPath() + modifyPath(request.getRequestPath())); 
                     	}
                 	}
                 	else if(WebServer.STATUS.equals(Status.MAINTENANCE)) {
-                		file = new File(Config.DEFAULT_PATH + MAINTENANCE_FILE);
+                		file = new File(WebServer.getPath() + MAINTENANCE_FILE);
                 	}
                 	
                     if(file != null) {

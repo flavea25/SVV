@@ -8,7 +8,7 @@ import exceptions.InvalidPortNumberException;
 
 public class Config {
 	//set to default
-	public static String DEFAULT_PATH = "C:\\Users\\flavi\\OneDrive\\Desktop\\TestSite";
+	private String path = "C:\\Users\\flavi\\OneDrive\\Desktop\\TestSite";
 	private int portNumber = 10008;
 	
 	private static List<Integer> unavailablePortNumbers = new ArrayList<Integer>();
@@ -30,12 +30,16 @@ public class Config {
 		}
 	}
 	
-	public void setDefaultPath(String path) throws InvalidPathException{
+	public String getPath() {
+		return this.path;
+	}
+	
+	public void setPath(String path) throws InvalidPathException{
 		if(path == null || path.equals("")) {
 			throw new InvalidPathException();
 		}
 		else {
-			DEFAULT_PATH = path;
+			this.path = path;
 		}
 	}
 	

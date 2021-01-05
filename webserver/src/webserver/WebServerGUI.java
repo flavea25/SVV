@@ -126,19 +126,19 @@ public class WebServerGUI {
 		pathLabel.setBounds(54, 196, 56, 16);
 		frame.getContentPane().add(pathLabel);
 		
-		pathText = new JTextField(Config.DEFAULT_PATH);
+		pathText = new JTextField(WebServer.getPath());
 		pathText.setHorizontalAlignment(SwingConstants.CENTER);
 		pathText.setBackground(Color.WHITE);
-		pathText.setBounds(92, 193, 391, 16);
+		pathText.setBounds(92, 196, 391, 16);
 		frame.getContentPane().add(pathText);
 		
 		btnChangePath = new JButton("Save");
 		btnChangePath.setBackground(SystemColor.activeCaption);
-		btnChangePath.setBounds(495, 193, 88, 16);
+		btnChangePath.setBounds(495, 196, 88, 16);
 		btnChangePath.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					WebServer.setPath(String.valueOf(pathText));
+					WebServer.setPath(pathText.getText());
 				} catch (InvalidPathException e1) {
 					e1.printStackTrace();
 				}

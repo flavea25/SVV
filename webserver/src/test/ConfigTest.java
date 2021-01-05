@@ -56,20 +56,20 @@ public class ConfigTest {
 	@Test(expected = InvalidPathException.class)
 	public void testSetNullPath() throws InvalidPathException {
 		Config c = new Config();
-		c.setDefaultPath(null);
+		c.setPath(null);
 	}
 	
 	@Test(expected = InvalidPathException.class)
 	public void testSetEmptyPath() throws InvalidPathException {
 		Config c = new Config();
-		c.setDefaultPath("");
+		c.setPath("");
 	}
 	
 	@Test
 	public void testSetCorrectPath() throws InvalidPathException {
 		Config c = new Config();
-		c.setDefaultPath("C:\\Users\\flavi\\OneDrive\\Desktop\\");
-		assertEquals("C:\\Users\\flavi\\OneDrive\\Desktop\\", Config.DEFAULT_PATH);
+		c.setPath("C:\\Users\\flavi\\OneDrive\\Desktop\\");
+		assertEquals("C:\\Users\\flavi\\OneDrive\\Desktop\\", c.getPath());
 	}
 
 }

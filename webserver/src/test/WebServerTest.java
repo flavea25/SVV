@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import exceptions.InvalidPathException;
 import exceptions.InvalidPortNumberException;
-import webserver.Config;
 import webserver.WebServer;
 
 public class WebServerTest {
@@ -20,7 +19,7 @@ public class WebServerTest {
 	@Test
 	public void testSetPath() throws InvalidPathException {
 		WebServer.setPath("C:\\");
-		assertEquals("C:\\",Config.DEFAULT_PATH);
+		assertEquals("C:\\",WebServer.getPath());
 	}
 
 	@Ignore
