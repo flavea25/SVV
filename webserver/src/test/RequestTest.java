@@ -33,9 +33,7 @@ public class RequestTest {
 			Request r = new Request(ss.accept().getInputStream());
 			r.parseRequest("Nono");
 		} catch (IOException e) {
-		} finally {
-			ss.close();
-		}
+		} 
 	}
 	
 	@Ignore
@@ -47,9 +45,7 @@ public class RequestTest {
 			Request r = new Request(ss.accept().getInputStream());
 			r.parseRequest("HET /a.html");
 		} catch (IOException e) {
-		} finally {
-			ss.close();
-		}
+		} 
 	}
 	
 	@Ignore
@@ -61,9 +57,7 @@ public class RequestTest {
 			Request r = new Request(ss.accept().getInputStream());
 			r.parseRequest("GET /a.html");
 		} catch (IOException e) {
-		} finally {
-			ss.close();
-		}
+		} 
 	}
 
 }

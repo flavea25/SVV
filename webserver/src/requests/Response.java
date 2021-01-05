@@ -39,14 +39,15 @@ public class Response {
                 		file = new File(Config.DEFAULT_PATH + MAINTENANCE_FILE);
                 	}
                 	
-                    
-                    if (file.exists()) {
-                    	headers.add(Response.VERSION + " " + ResponseType.toString(ResponseType.CODE200));
-                        content = Files.readAllBytes(file.toPath());
-                    } else {
-                    	System.err.println("File not found: " + file.toPath());
-                    	headers.add(Response.VERSION + " " + ResponseType.toString(ResponseType.CODE404));
-                        content = ResponseType.toString(ResponseType.CODE404).getBytes();
+                    if(file != null) {
+                    	if (file.exists()) {
+                        	headers.add(Response.VERSION + " " + ResponseType.toString(ResponseType.CODE200));
+                            content = Files.readAllBytes(file.toPath());
+                        } else {
+                        	System.err.println("File not found: " + file.toPath());
+                        	headers.add(Response.VERSION + " " + ResponseType.toString(ResponseType.CODE404));
+                            content = ResponseType.toString(ResponseType.CODE404).getBytes();
+                        }
                     }
                 } catch (Exception e) {
                 	System.err.println("Error at Request Type " + e);

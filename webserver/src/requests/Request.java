@@ -26,7 +26,9 @@ public class Request {
     public Request(InputStream inputStream) throws IOException, InvalidRequestException {
         BufferedReader bufferReader = new BufferedReader(new InputStreamReader(inputStream));
         String tmp = bufferReader.readLine();
-        parseRequest(tmp);
+        if(tmp != null) {
+        	parseRequest(tmp);
+        }
     }
 
     public void parseRequest(String request) throws InvalidRequestException {
