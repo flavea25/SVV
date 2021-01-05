@@ -3,6 +3,8 @@
 import java.net.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import exceptions.InvalidPathException;
 import exceptions.InvalidPortNumberException;
 import requests.RequestHandler;
 
@@ -47,7 +49,7 @@ public class WebServer {
 				wsg.statusLabel.setText("Status: " + WebServer.STATUS.toString());
 				System.out.println("Communication Thread Stopped");
 			} catch (Exception e) {
-				System.err.println("Error at STOP");
+				System.err.println("Error at STOP: " + e);
 				System.exit(1);
 			}
 		}
@@ -78,7 +80,7 @@ public class WebServer {
 		configuration.setPortNumber(port);
 	}
 	
-	public static void setPath(String path) {
+	public static void setPath(String path) throws InvalidPathException {
 		configuration.setDefaultPath(path);
 	}
 }

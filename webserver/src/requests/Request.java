@@ -29,7 +29,7 @@ public class Request {
         parseRequest(tmp);
     }
 
-    private void parseRequest(String request) throws InvalidRequestException {
+    public void parseRequest(String request) throws InvalidRequestException {
     	String[] split = request.split("\\s+");
         try {
         	requestType = RequestType.valueOf(split[0]);

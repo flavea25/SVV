@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import exceptions.InvalidPathException;
+
 public class WebServerGUI {
 
 	private JFrame frame = new JFrame("WebServerGUI");
@@ -135,7 +137,11 @@ public class WebServerGUI {
 		btnChangePath.setBounds(495, 193, 88, 16);
 		btnChangePath.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				WebServer.setPath(String.valueOf(pathText));
+				try {
+					WebServer.setPath(String.valueOf(pathText));
+				} catch (InvalidPathException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		frame.getContentPane().add(btnChangePath);

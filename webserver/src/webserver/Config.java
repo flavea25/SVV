@@ -3,6 +3,7 @@ package webserver;
 import java.util.ArrayList;
 import java.util.List;
 
+import exceptions.InvalidPathException;
 import exceptions.InvalidPortNumberException;
 
 public class Config {
@@ -29,8 +30,13 @@ public class Config {
 		}
 	}
 	
-	public void setDefaultPath(String path) {
-		DEFAULT_PATH = path;
+	public void setDefaultPath(String path) throws InvalidPathException{
+		if(path == null || path.equals("")) {
+			throw new InvalidPathException();
+		}
+		else {
+			DEFAULT_PATH = path;
+		}
 	}
 	
 	private void computeUnavailablePortNumbers() { //taken from Wikipedia
@@ -95,5 +101,9 @@ public class Config {
 		unavailablePortNumbers.add(497);
 		unavailablePortNumbers.add(500);
 		unavailablePortNumbers.add(1080);
+	}
+	
+	public List<Integer> getUnavailablePorts(){
+		return unavailablePortNumbers;
 	}
 }
