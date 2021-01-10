@@ -31,3 +31,5 @@ therefore, I suggest you use the folder TestSite from my GitHub; however, it sho
 	-Static & Dynamic Analysis
 	-the WebServerGUI overlook - if it doesn't look like this when you run the project, maximize and minimize the GUI for it to update its appearance 
 	-how the page looks in the browser when the WebServer is running - the text is red and the table has a border because of the CSS file.
+	-Web interface testing: I used the Selenium IDE extension for Google Chrome - I attached screenshot of the results, as well a .side file containing the implemented tests
+	
